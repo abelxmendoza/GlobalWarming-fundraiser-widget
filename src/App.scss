@@ -1,0 +1,191 @@
+// _variable.scss file
+$body-bg: #fff;
+$card-body-bg: #f5f8f9;
+$card-box-shadow: 0 6px 6px -6px #999;
+$primary-color: #774195; //easily change theme
+$button-bg-color: $primary-color;
+$button-text-color: #fff;
+$button-bg-hover: #fff;
+$button-text-hover: $primary-color;
+$container-spacing: 10px;
+$small-text: 12px;
+$large-text: 18px;
+$font-weight-bold: 800;
+//
+
+.container {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px;
+  position: relative;
+}
+
+form {
+  margin-bottom: 10px;
+}
+
+.card {
+  width: 200px;
+  background-color: $card-body-bg;
+  border: 1px solid #dee;
+  box-shadow: $card-box-shadow;
+  margin: auto;
+
+  .card-header {
+    background-color: $body-bg;
+
+    .logo {
+      min-height: 100px;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+  }
+  .card-body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    font-family: 'Karla', sans-serif;
+
+    .title {
+      font-weight: $font-weight-bold;
+      margin: 16px 10px;
+    }
+    .donation-amount {
+      display: flex;
+      justify-content: space-around;
+
+      label {
+        font-size: 14px;
+      }
+      input {
+        cursor: pointer;
+      }
+    }
+
+    .thermometer {
+      .thermometer-raised {
+        color: $primary-color;
+        font-weight: $font-weight-bold;
+        font-size: $large-text;
+      }
+
+      .progress {
+        margin: $container-spacing;
+        .progress-labels {
+          display: flex;
+          justify-content: space-between;
+          font-size: $small-text;
+          color: #888;
+        }
+
+        .progress-bar {
+          width: 100%;
+          height: 7px;
+          background: $body-bg;
+          border: 1px solid #dee;
+
+          .progress-inner {
+            background: $primary-color;
+            height: 100%;
+            border-radius: 0 20px 20px 0;
+            transition: 0.25s ease;
+            z-index: 99;
+          }
+        }
+      }
+    }
+    .modal {
+      width: 200px;
+      height: 410px;
+      background-color: $primary-color;
+      color: white;
+      margin: auto;
+      top: 0;
+      opacity: 0;
+      border: 3px solid $primary-color;
+      box-shadow: $card-box-shadow;
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      align-items: space-around;
+      justify-content: center;
+      pointer-events: none;
+      transition: all 0.35s ease-in-out;
+
+      &[data-status='true'] {
+        opacity: 1;
+        pointer-events: auto;
+        top: 40%;
+        margin-top: -170px;
+      }
+      .modal-header {
+        color: white;
+      }
+      .modal-body {
+        font-size: $large-text;
+        width: 85%;
+        margin: 0 auto;
+
+        .donation {
+          color: white;
+          font-size: 24px;
+          font-weight: $font-weight-bold;
+        }
+        .donation-thin {
+          color: white;
+          font-size: 20px;
+        }
+      }
+    }
+
+    .give-btn {
+      background-color: $button-bg-color;
+      color: $button-text-color;
+      font-size: $large-text;
+      font-weight: $font-weight-bold;
+      letter-spacing: -1px;
+      padding: 12px;
+      margin: $container-spacing;
+      border-radius: 5px;
+      border: none;
+      font-family: 'Karla', sans-serif;
+      box-shadow: $card-box-shadow;
+      &:hover {
+        background-color: $button-bg-hover;
+        color: $button-text-hover;
+        border: 1px solid $button-text-hover;
+        outline: none;
+        cursor: pointer;
+      }
+      &:focus {
+        outline-color: $primary-color;
+      }
+    }
+    .modal-btn {
+      background-color: white;
+      color: $primary-color;
+      font-size: $large-text;
+      font-weight: $font-weight-bold;
+      letter-spacing: -1px;
+      padding: 12px;
+      margin: $container-spacing;
+      border-radius: 5px;
+      border: none;
+      font-family: 'Karla', sans-serif;
+      box-shadow: $card-box-shadow;
+      &:hover {
+        background-color: $button-bg-hover;
+        color: $button-text-hover;
+        border: 1px solid $button-text-hover;
+        outline: none;
+        cursor: pointer;
+      }
+      &:focus {
+        outline-color: $primary-color;
+      }
+    }
+  }
+}
