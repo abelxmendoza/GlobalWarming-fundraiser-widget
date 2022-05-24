@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Modal } from './Modal'
 
 export const Thermometer = ( props ) => {
 
@@ -25,6 +26,18 @@ export const Thermometer = ( props ) => {
 
     }
   
+    const handleModal = () => {
+
+        if(!modal) {
+
+            setModal(true)
+        }
+        else {
+            setModal(false)
+        }
+    }
+
+
     const handleChange = (event) => {
 
         setValue(parseInt(event.target.value));
@@ -33,6 +46,7 @@ export const Thermometer = ( props ) => {
     const handleDonation = () => {
 
         setRaised(raised + value);
+        handleModal()
     }
 
 
@@ -45,6 +59,14 @@ export const Thermometer = ( props ) => {
                     <div className='progress-labels'>
                         <div>0%</div>
                         <div>RAISED</div>
+                        {raised < goal ? (
+                            <div>100%</div>
+                        ) : (
+
+                            <div style = {{color: 'green', backgroundColor: 'orange'}}>100%</div>
+                        )
+                    
+                    }
                         <div>100%</div>
                     </div>
                     <div className='progress-bar'>
@@ -119,8 +141,16 @@ export const Thermometer = ( props ) => {
                 </label>
 
             </form>
-            <button onClick={() => handleDonation()} className = "give-btn">Gimme</button>
-            
+            <button onClick={() => handleDonation()} className = "give-btn">
+                Gimme
+            </button>
+            <Modal 
+                onClick = {handleModal}
+                status = {modal}
+                raised = {raised}
+                value = {value}
+                data = {props}
+            />
 
 
         </>
