@@ -20,10 +20,14 @@ export const Modal = (props) => {
                     </div>
                     <span className="donation">${props.value.toFixed(2)}</span>
                     <div className="subtitle">
-                        <span className="donation-thin">${props.raised}</span>
-                        <span className="donation-thin">${props.data.goal}</span>
+                        With your help we have raised{' '}
+                        <span className="donation-thin">${props.raised}</span> of our{' '}
+                        <span className="donation-thin">${props.data.goal}</span> goal.{' '}
 
                     </div>
+                    <button className='modal-btn' onClick={props.onClick}>
+                        Donate some more!
+                    </button>
                 </div>
             </div>
         </div>
